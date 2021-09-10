@@ -23,7 +23,7 @@ add_format(format"JLD", (unsafe_wrap(Vector{UInt8}, "Julia data file (HDF5), ver
 add_format(format"JLD2", (unsafe_wrap(Vector{UInt8},"Julia data file (HDF5), version 0.2"),
                           unsafe_wrap(Vector{UInt8}, "HDF5-based Julia Data Format, version ")), ".jld2", [:JLD2 => UUID("033835bb-8acc-5ee8-8aae-3f567f8a3819")])
 add_format(format"GZIP", [0x1f, 0x8b], ".gz", [:Libz => UUID("2ec943e9-cfe8-584d-b93d-64dcb6d567b7")])
-add_format(format"BSON",(),".bson", [:BSON => UUID("fbb218c0-5317-5bc6-957e-2ee96dd4b1f0")])
+add_format(format"BSON",(),".bson", [:LightBSON => UUID("a4a7f996-b3a6-4de6-b9db-2fa5f350df41")], [:BSON => UUID("fbb218c0-5317-5bc6-957e-2ee96dd4b1f0")])
 add_format(format"JLSO", (), ".jlso", [:JLSO => UUID("9da8a3cd-07a3-59c0-a743-3fdc52c30d11")])
 
 function detect_compressor(io, len=getlength(io); formats=["GZIP", "BZIP2", "XZ", "LZ4"])
